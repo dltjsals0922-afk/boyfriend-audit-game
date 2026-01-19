@@ -26,6 +26,49 @@
   ctx.imageSmoothingEnabled = true;
   ctx.imageSmoothingQuality = "high";
 
+  /* ===== Mobile-first sizing ===== */
+:root{
+  --safePad: max(16px, env(safe-area-inset-top));
+  --radius: 18px;
+}
+
+#screen-game{
+  padding: var(--safePad) 16px 16px;
+}
+
+.game-wrap{
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+/* canvas가 화면을 더 크게 차지하게 */
+#game{
+  width: 100%;
+  height: min(62vh, 520px);
+  display: block;
+  border-radius: var(--radius);
+}
+
+/* HUD/버튼 크게 */
+.hud{
+  font-size: 14px;
+}
+
+button, .btn{
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 16px;
+}
+
+/* 모바일에서 리포트 카드 간격도 넉넉하게 */
+@media (max-width: 560px){
+  #game{ height: 62vh; }
+  .kpi{ padding: 12px; }
+  .kpi-val{ font-size: 22px; }
+}
+
+
   const hudTime = $("hud-time");
   const hudScore = $("hud-score");
   const toast = $("toast");
@@ -270,8 +313,6 @@
   }
 
   // -------- Game constants/state --------
-  const W = canvas.width, H = canvas.height;
-  const GROUND_Y = H - 56;
   const DURATION = 30.0;
 
   let mood = "calm"; // calm / focused / overloaded
@@ -780,6 +821,17 @@
 
   canvas.addEventListener("pointerdown", () => jump());
 
+  // ===============================
+// 📱 Resize 대응 (회전/창 변경)
+// ===============================
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+    syncWorld();
+  });
+
   // init (시작은 버튼으로)
+  resizeCanvas();
+  syncWorld();
   reset();
+  requestAnimationFrame(step);
 })();
