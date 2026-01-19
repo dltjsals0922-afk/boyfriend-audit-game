@@ -227,3 +227,46 @@ canvas{display:block; width:100%; height:auto}
 .footer-note{margin-top:16px; padding-top:12px; border-top:1px solid var(--line)}
 .footer-note .big{margin:0 0 6px; font-size:18px; line-height:1.55}
 .footer-note .small{margin:0; color:var(--muted)}
+
+/* ===== Mobile-first sizing ===== */
+:root{
+  --safePad: max(16px, env(safe-area-inset-top));
+  --radius: 18px;
+}
+
+#screen-game{
+  padding: var(--safePad) 16px 16px;
+}
+
+.game-wrap{
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+/* canvas가 화면을 더 크게 차지하게 */
+#game{
+  width: 100%;
+  height: min(62vh, 520px);
+  display: block;
+  border-radius: var(--radius);
+}
+
+/* HUD/버튼 크게 */
+.hud{
+  font-size: 14px;
+}
+
+button, .btn{
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 16px;
+}
+
+/* 모바일에서 리포트 카드 간격도 넉넉하게 */
+@media (max-width: 560px){
+  #game{ height: 62vh; }
+  .kpi{ padding: 12px; }
+  .kpi-val{ font-size: 22px; }
+}
+
