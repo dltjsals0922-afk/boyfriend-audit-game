@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Boyfriend Audit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- GAME SCREEN -->
+    <section id="screen-game" class="screen">
+      <header class="topbar">
+        <div class="brand">💗 Heart Run</div>
+        <div class="hud">
+          <span id="hud-time">30.0s</span>
+          <span class="dot">•</span>
+          <span>Hearts <b id="hud-score">0</b></span>
+        </div>
+      </header>
+
+      <div class="card">
+        <div class="title-row">
+          <h1 class="title">Survive 30 seconds</h1>
+          <div class="pill">Unlock Report</div>
+        </div>
+        <p class="sub">SPACE / ↑ / TAP to jump. Collect hearts. Don’t crash.</p>
+
+        <div class="canvas-wrap">
+          <canvas id="game" width="760" height="360"></canvas>
+        </div>
+
+        <div class="controls">
+          <button id="btn-start" class="btn primary">Start</button>
+          <button id="btn-restart" class="btn" disabled>Restart</button>
+          <span class="hint">Tip: short taps = cleaner jumps</span>
+        </div>
+
+        <div id="toast" class="toast" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- REPORT SCREEN -->
+    <section id="screen-report" class="screen hidden">
+      <header class="topbar">
+        <div class="brand">📄 Boyfriend Audit Report</div>
+        <div class="hud">
+          <button id="btn-back" class="btn small">Back to game</button>
+        </div>
+      </header>
+
+      <div class="card report">
+        <!-- HERO / COVER -->
+        <div class="hero">
+          <div class="hero-media">
+            <img id="heroImg" class="hero-img" alt="Hero photo" />
+            <div class="hero-overlay"></div>
+            <div class="hero-badge">
+              <div class="hero-kicker">Unofficial • Emotion-Based • Absolutely Biased Edition</div>
+              <div class="hero-title">Boyfriend Audit Report v1.0</div>
+              <div class="hero-meta">
+                Subject: <b>Hayden</b> <span class="dot">•</span>
+                Conclusion: <b>Optimal to Keep Close at All Times</b>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FINAL VERDICT -->
+        <div class="verdict">
+          <div class="verdict-label">FINAL VERDICT</div>
+          <div class="verdict-quote">
+            “Scientifically unreplaceable.<br/>
+            Emotionally non-negotiable.<br/>
+            Personally: mine.”
+          </div>
+          <div class="verdict-sub">
+            This report was conducted under the influence of affection,<br/>
+            daily observation, and zero objectivity.
+          </div>
+        </div>
+
+        <!-- KPI GRID -->
+        <div class="grid" id="rep-kpis"></div>
+
+        <!-- OBSERVATIONS -->
+        <div class="section">
+          <h2>🧠 Behavioral & Emotional Observations</h2>
+          <div class="prose" id="rep-observation-prose"></div>
+        </div>
+
+        <!-- VERY SPECIFIC FACTS -->
+        <div class="section">
+          <div class="section-head">
+            <h2>📌 Very Specific Hayden Facts</h2>
+            <div class="mini-note">Cute, weird, and legally binding.</div>
+          </div>
+
+          <div class="photo-grid">
+            <figure class="photo-box">
+              <img id="factPhotoA" class="photo" alt="Facts photo A" />
+              <figcaption>Photo A</figcaption>
+            </figure>
+            <figure class="photo-box">
+              <img id="factPhotoB" class="photo" alt="Facts photo B" />
+              <figcaption>Photo B</figcaption>
+            </figure>
+          </div>
+
+          <div class="facts-grid">
+            <div class="facts-card">
+              <div class="facts-title">Food & Preferences</div>
+              <ul class="facts" id="facts-food"></ul>
+            </div>
+            <div class="facts-card">
+              <div class="facts-title">Habits & Daily Lore</div>
+              <ul class="facts" id="facts-habits"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHANGE LOG -->
+        <div class="section">
+          <h2>📈 Relationship Change Log</h2>
+          <div class="prose" id="rep-change-log"></div>
+        </div>
+
+        <!-- AFFECTION NOTES -->
+        <div class="section">
+          <h2>🌿 Appearance & Affection Notes</h2>
+          <div class="prose" id="rep-affection-notes"></div>
+        </div>
+
+        <!-- GLASSES EPISODE -->
+        <div class="section">
+          <h2>👓 Glasses Incident Report</h2>
+          <div class="glasses">
+            <div class="glasses-photo">
+              <img id="glassesPhoto" alt="Glasses photo" />
+            </div>
+            <div class="facts-card">
+              <div class="facts-title">Side Effects</div>
+              <ul class="facts" id="facts-glasses"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- GAME RECORD -->
+        <div class="section">
+          <h2>🏆 Game Record</h2>
+          <div class="record">
+            <div>Hearts collected: <b id="rep-score">0</b></div>
+            <div>Time survived: <b id="rep-time">30.0s</b></div>
+          </div>
+          <div class="muted" id="rep-comment"></div>
+        </div>
+
+        <!-- ENDING -->
+        <div class="footer-note">
+          <p class="big" id="rep-ending"></p>
+          <p class="small">— from Seonmin 💗</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
+

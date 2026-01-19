@@ -1,0 +1,229 @@
+:root{
+  --bg:#0b0c10;
+  --line:#1e2230;
+  --text:#e9ebf3;
+  --muted:#b9bfd6;
+  --accent:#ff4d8d;
+  --accent2:#7c5cff;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 20% 10%, rgba(255,77,141,.22), transparent 60%),
+    radial-gradient(900px 500px at 80% 0%, rgba(124,92,255,.18), transparent 55%),
+    var(--bg);
+  color:var(--text);
+}
+.wrap{max-width:1040px; margin:0 auto; padding:24px}
+.hidden{display:none}
+
+.topbar{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:12px 6px; margin-bottom:12px;
+}
+.brand{font-weight:900; letter-spacing:.2px}
+.hud{display:flex; gap:10px; align-items:center; color:var(--muted)}
+.dot{opacity:.5}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+}
+
+.title-row{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.title{margin:4px 0 8px; font-size:28px}
+.pill{
+  border:1px solid rgba(255,77,141,.32);
+  background: linear-gradient(135deg, rgba(255,77,141,.22), rgba(124,92,255,.18));
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  color:var(--text);
+  font-weight:800;
+}
+
+.sub{margin:0 0 16px; color:var(--muted); line-height:1.5}
+
+.canvas-wrap{
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  background:#0f1118;
+}
+canvas{display:block; width:100%; height:auto}
+
+.controls{
+  margin-top:14px;
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+}
+.hint{color:var(--muted); font-size:13px}
+
+.btn{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+}
+.btn:hover{background:rgba(255,255,255,.07)}
+.btn:disabled{opacity:.45; cursor:not-allowed}
+.btn.primary{
+  border-color: rgba(255,77,141,.35);
+  background: linear-gradient(135deg, rgba(255,77,141,.35), rgba(124,92,255,.25));
+}
+.btn.small{padding:8px 10px; border-radius:10px; font-size:13px}
+
+.toast{margin-top:12px; min-height:18px; color:var(--muted); font-size:14px}
+
+/* REPORT */
+.report .grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+  margin:14px 0 10px;
+}
+@media (max-width:920px){ .report .grid{grid-template-columns: repeat(2, 1fr);} }
+@media (max-width:560px){ .report .grid{grid-template-columns: 1fr;} }
+
+.kpi{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px;
+  background: rgba(0,0,0,.18);
+}
+.kpi-label{color:var(--muted); font-size:13px}
+.kpi-val{font-size:24px; font-weight:900; margin:6px 0}
+.kpi-note{color:var(--muted); font-size:12px; line-height:1.4}
+
+.section{margin-top:16px; padding-top:14px; border-top:1px solid var(--line)}
+.section h2{margin:0 0 10px; font-size:18px}
+.section-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap}
+.mini-note{color:var(--muted); font-size:12px}
+
+.prose{line-height:1.65}
+.prose p{margin:0 0 10px}
+.prose .muted{color:var(--muted)}
+
+.record{display:flex; gap:18px; flex-wrap:wrap; color:var(--muted)}
+.muted{color:var(--muted); margin-top:8px}
+
+/* HERO */
+.hero{margin-bottom:14px}
+.hero-media{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  min-height:260px;
+  background: rgba(0,0,0,.18);
+}
+.hero-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform: scale(1.03);
+  filter: blur(1.4px) saturate(1.05);
+}
+.hero-overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.68));
+  pointer-events:none;
+}
+.hero-badge{
+  position:absolute; left:14px; right:14px; bottom:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.22);
+  backdrop-filter: blur(8px);
+  border-radius:14px;
+  padding:12px;
+}
+.hero-kicker{color:var(--muted); font-size:12px}
+.hero-title{font-size:22px; font-weight:900; margin:6px 0 4px}
+.hero-meta{color:var(--muted); font-size:13px}
+
+/* Verdict */
+.verdict{
+  border:1px solid rgba(255,77,141,.22);
+  background: linear-gradient(135deg, rgba(255,77,141,.12), rgba(124,92,255,.10));
+  border-radius:16px;
+  padding:14px;
+}
+.verdict-label{color:var(--muted); font-size:12px; letter-spacing:.4px}
+.verdict-quote{margin-top:8px; font-size:18px; font-weight:900; line-height:1.35}
+.verdict-sub{margin-top:10px; color:var(--muted); line-height:1.5}
+
+/* Photos */
+.photo-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+  margin:10px 0 12px;
+}
+@media (max-width:900px){ .photo-grid{grid-template-columns:1fr} }
+.photo-box{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background: rgba(0,0,0,.18);
+  overflow:hidden;
+}
+.photo-box figcaption{
+  padding:10px 12px;
+  color:var(--muted);
+  font-size:12px;
+  border-top:1px solid var(--line);
+}
+.photo{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+
+/* Facts */
+.facts-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+@media (max-width:900px){ .facts-grid{grid-template-columns:1fr} }
+.facts-card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px;
+  background: rgba(0,0,0,.18);
+}
+.facts-title{font-weight:900; margin-bottom:8px}
+.facts{margin:0; padding-left:18px}
+.facts li{margin:6px 0}
+
+/* Glasses */
+.glasses{
+  display:grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap:12px;
+  align-items:stretch;
+}
+@media (max-width:900px){ .glasses{grid-template-columns:1fr} }
+.glasses-photo{
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  background: rgba(0,0,0,.18);
+}
+.glasses-photo img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  display:block;
+}
+
+.footer-note{margin-top:16px; padding-top:12px; border-top:1px solid var(--line)}
+.footer-note .big{margin:0 0 6px; font-size:18px; line-height:1.55}
+.footer-note .small{margin:0; color:var(--muted)}
